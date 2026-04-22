@@ -103,6 +103,20 @@ PESTS:
 - Fungus Gnats: tiny dark flies near soil, wilting mimicking nutrient issues
 - Whiteflies: tiny white moth-like insects, white spots on upper leaves
 - Mealybugs: white hairy fuzzy insects, white powdery patches, honeydew deposits
+- Caterpillars: large irregular holes eaten from leaves, dark droppings on leaves below, cocoons on branches
+
+FUNGAL (ADDITIONAL):
+- Fusarium Wilt: sudden wilting not responsive to watering, brown/orange discoloration inside stem near soil
+- Alternaria Leaf Spot: purple-brown spots with yellow borders and black spore masses at center
+- Verticillium Wilt: wilting on one side of plant, brown vascular discoloration in stem cross-section
+
+NUTRIENT & ENVIRONMENTAL (ADDITIONAL):
+- Nutrient Lockout: multiple deficiency symptoms simultaneously despite feeding, white salt crust on soil surface
+- Cold Stress: purple or dark blue discoloration on leaves/stems, slowed growth, dark green or purplish hue
+
+GENETIC/REPRODUCTIVE:
+- Hermaphrodite / Bananas: small yellow banana-shaped pollen sacs or round balls at bud sites, yellow pollen dust on surfaces
+- Accidental Pollination: swollen seed-filled hard lumpy bracts in buds, visible seeds inside flowers, premature pistil die-back
 
 From the following known conditions, list only those you can visually confirm or strongly suspect:
 {_DISEASE_NAMES}

@@ -278,5 +278,85 @@
     "causes": "Fly larvae tunneling through leaf tissue",
     "treatment": "Remove and discard all affected leaves. Apply targeted insecticides for leaf miners.",
     "risk_to_consumer": "Primarily affects leaves, rarely reaches buds. Low consumer risk."
+  },
+  {
+    "id": "nutrient_lockout",
+    "name": "Nutrient Lockout",
+    "category": "nutrient",
+    "severity": "medium",
+    "visual_symptoms": ["multiple nutrient deficiency symptoms appearing simultaneously despite feeding", "yellowing browning and spotting on leaves with no improvement from nutrients", "overall sick appearance across entire plant even with adequate fertilization", "salt crust or white mineral buildup on soil surface or pot edges"],
+    "causes": "Salt accumulation from concentrated fertilizers altering root zone pH, chemical buildup blocking nutrient absorption even when nutrients are present",
+    "treatment": "Flush substrate thoroughly with large volumes of pH-balanced water. Restart feeding at half the normal rate. Check and correct pH after flushing.",
+    "risk_to_consumer": "No direct health risk. Indicates poorly managed grow potentially leaving chemical residues."
+  },
+  {
+    "id": "cold_stress",
+    "name": "Cold Stress",
+    "category": "environmental",
+    "severity": "medium",
+    "visual_symptoms": ["purple or dark blue discoloration on leaves and stems", "slowed or stopped growth", "leaves curling or cupping", "dark green or purplish hue spreading across foliage", "reduced bud development", "increased susceptibility to mold and pests"],
+    "causes": "Temperatures below 15°C (60°F), cold drafts, unheated grow spaces in winter",
+    "treatment": "Move plants to warmer location. Use greenhouse or grow tent with heating. Maintain minimum 18°C (65°F) during lights-off. Note: some purple coloring is natural in certain strains.",
+    "risk_to_consumer": "No direct health risk. Reduces cannabinoid and terpene production."
+  },
+  {
+    "id": "fusarium",
+    "name": "Fusarium Wilt",
+    "category": "fungal",
+    "severity": "critical",
+    "visual_symptoms": ["sudden wilting and drooping of entire plant or branches", "yellowing that does not respond to watering or nutrients", "brown or orange discoloration inside stems near soil when cut", "rapid plant collapse and death", "roots turning brown and rotting"],
+    "causes": "Soil-borne Fusarium fungus that can lie dormant in soil for years. Spreads via contaminated soil, tools, or water.",
+    "treatment": "No cure — infected plants must be culled immediately. Discard all soil from infected containers. Disinfect all equipment with bleach solution. Start fresh with sterile medium.",
+    "risk_to_consumer": "Fusarium-infected plant material should not be consumed. Produces mycotoxins."
+  },
+  {
+    "id": "alternaria",
+    "name": "Alternaria Leaf Spot",
+    "category": "fungal",
+    "severity": "high",
+    "visual_symptoms": ["purple-brown spots with yellow borders on foliage", "small black spore masses at center of spots", "spots spreading and merging into larger necrotic patches", "affected leaves yellowing and dropping"],
+    "causes": "Warm humid conditions, poor soil health, previous fungal issues, nutrient deficiencies weakening plant immunity. Can be seed-borne.",
+    "treatment": "No cure for infected tissue. Remove affected leaves immediately. Apply copper-based fungicide preventatively. Improve airflow and reduce humidity. Cull severely infected plants.",
+    "risk_to_consumer": "Fungal-infected material should not be consumed."
+  },
+  {
+    "id": "verticillium",
+    "name": "Verticillium Wilt",
+    "category": "fungal",
+    "severity": "critical",
+    "visual_symptoms": ["wilting of individual leaves branches or entire plant sections", "brown or tan discoloration inside stems when cut near soil level", "yellowing on one side of the plant progressing across", "vascular browning visible in stem cross-section"],
+    "causes": "Soil-borne Verticillium fungus blocking water and nutrient transport through vascular system.",
+    "treatment": "No cure. Remove and destroy infected plants. Sterilize all tools and containers. Remove top layer of contaminated soil. Do not reuse infected growing medium.",
+    "risk_to_consumer": "Vascular infection compromises entire plant. Infected material should not be consumed."
+  },
+  {
+    "id": "caterpillars",
+    "name": "Caterpillars / Inchworms",
+    "category": "pest",
+    "severity": "medium",
+    "visual_symptoms": ["large irregular chunks or holes eaten from leaves", "brown tunnels or trails bored into stems", "cocoons or webbing attached to branches", "dark frass (droppings) on leaves below feeding sites", "defoliated branches"],
+    "causes": "Moth or butterfly larvae feeding on plants. Common outdoors.",
+    "treatment": "Manually inspect and remove caterpillars and egg clusters. Apply Bacillus thuringiensis (BT) — organic and effective. Use neem oil spray. Install fine mesh netting outdoors.",
+    "risk_to_consumer": "Caterpillar damage creates entry points for mold. Check tunneled stems carefully before consuming nearby buds."
+  },
+  {
+    "id": "hermaphrodite_bananas",
+    "name": "Hermaphrodite / Bananas",
+    "category": "genetic",
+    "severity": "high",
+    "visual_symptoms": ["small yellow banana-shaped pollen sacs emerging from bud sites", "round balls or pollen sacs where pistils should be", "mixed male and female organs visible on same plant", "dusting of yellow pollen on nearby surfaces or buds"],
+    "causes": "Genetic predisposition, stress from temperature fluctuations, light cycle interruption, pH extremes, overfeeding, physical damage",
+    "treatment": "Remove hermaphrodite plant or affected branches immediately to prevent pollination. Check remaining plants for seeds. Cannot be reversed once pollen is released.",
+    "risk_to_consumer": "Pollinated buds contain seeds — lower potency and harsher smoke. No direct safety risk."
+  },
+  {
+    "id": "pollination",
+    "name": "Accidental Pollination (Seedy Buds)",
+    "category": "genetic",
+    "severity": "medium",
+    "visual_symptoms": ["swollen seed-filled bracts in buds", "visible seeds developing inside flowers", "plant ceases resin production and pistils die back prematurely", "buds feel hard and lumpy instead of dense and sticky"],
+    "causes": "Male pollen reaching female flowers from hermaphrodite plants or nearby male plants",
+    "treatment": "No reversal once pollination occurs. Remove source of pollen. Harvest early if plant is heavily seeded to salvage remaining potency.",
+    "risk_to_consumer": "Seedy buds have significantly lower potency and harsher taste. Seeds must be removed before consumption."
   }
 ]
