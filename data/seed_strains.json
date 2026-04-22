@@ -1,0 +1,189 @@
+[
+  {
+    "strain": "AK47 Photo",
+    "color": "tan/brown with darker mottling",
+    "markings": "speckled brown patterns, darker striations",
+    "size": "medium",
+    "shape": "oval",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature and viable with good coloration and defined markings.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "Blackberry Auto",
+    "color": "brown with darker mottling",
+    "markings": "speckled pattern with darker streaks",
+    "size": "small",
+    "shape": "oval",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature and viable with good coloration and natural ridged texture indicating proper development.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "Cherry Pie",
+    "color": "tan/light brown",
+    "markings": "dark brown striping and mottling",
+    "size": "medium",
+    "shape": "oval",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Seeds display good coloration and plumpness consistent with viable, mature seeds.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "Gelato",
+    "color": "light brown to tan",
+    "markings": "dark brown tiger stripes and mottled patterns",
+    "size": "medium",
+    "shape": "oval",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature and viable with good coloration and distinct markings indicating proper development.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "Gorilla Purple",
+    "color": "brown with tan/beige mottling",
+    "markings": "darker brown streaks and speckled pattern",
+    "size": "medium",
+    "shape": "oval to teardrop",
+    "surface": "ridged with texture",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature and viable with well-developed shells and natural coloration typical of healthy cannabis seeds.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "KD",
+    "color": "brown with darker mottling",
+    "markings": "dark brown striped and speckled patterns",
+    "size": "medium",
+    "shape": "oval to teardrop",
+    "surface": "ridged with textured appearance",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature and viable with good coloration and definition.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "KD_KT",
+    "color": "brown with darker mottling",
+    "markings": "dark brown streaks and patterns across shell",
+    "size": "medium",
+    "shape": "oval",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature and viable with typical coloration and pattern consistency.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "Hang Kra Rog KU",
+    "color": "brown with tan mottling",
+    "markings": "dark brown streaks and speckled patterns",
+    "size": "medium",
+    "shape": "oval to slightly teardrop",
+    "surface": "ridged and textured",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature and viable with good coloration and full development.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "Skunk Auto",
+    "color": "brown with tan/beige mottling",
+    "markings": "darker streaks and spots across shell surface",
+    "size": "small",
+    "shape": "oval to teardrop",
+    "surface": "ridged with texture",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature with good coloration and fullness, though surface texture shows some age-related patterns.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "Sour Diesel Auto",
+    "color": "tan/brown",
+    "markings": "mottled dark striping and speckles",
+    "size": "small",
+    "shape": "oval/teardrop",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature and viable with typical striped coloration pattern.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "Purple Duck",
+    "color": "tan/brown with darker mottling",
+    "markings": "dark brown striations and veining pattern",
+    "size": "medium",
+    "shape": "oval/teardrop",
+    "surface": "ridged with visible texture",
+    "fullness": "plump",
+    "health_notes": "Seeds appear mature and viable with good shell coloration and defined patterns indicating proper development.",
+    "source": "mendeley_dataset"
+  },
+  {
+    "strain": "Tanaosri Kan Daeng RD1",
+    "color": "dark brown to reddish-brown",
+    "markings": "subtle mottling and faint striping",
+    "size": "small",
+    "shape": "oval",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Thai landrace strain \u2014 small compact seeds with reddish-brown hue.",
+    "source": "inferred_landrace"
+  },
+  {
+    "strain": "Hang Kra Rog Phu Phan ST1",
+    "color": "brown with grey mottling",
+    "markings": "light mottled pattern with faint veining",
+    "size": "medium",
+    "shape": "oval to teardrop",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Thai landrace strain \u2014 medium seeds with grey-brown tones.",
+    "source": "inferred_landrace"
+  },
+  {
+    "strain": "Hang Suea Sakon Nakhon TT1",
+    "color": "tan to light brown",
+    "markings": "minimal striping, lightly mottled",
+    "size": "medium",
+    "shape": "oval",
+    "surface": "smooth to lightly ridged",
+    "fullness": "average to plump",
+    "health_notes": "Thai landrace strain \u2014 lighter coloration than other Thai varieties.",
+    "source": "inferred_landrace"
+  },
+  {
+    "strain": "Krerng Ka Via",
+    "color": "dark brown",
+    "markings": "strong tiger stripes and dark mottling",
+    "size": "medium",
+    "shape": "teardrop",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Thai landrace strain \u2014 distinctive dark coloration with strong markings.",
+    "source": "inferred_landrace"
+  },
+  {
+    "strain": "Tanaosri Kan Kaw WA1",
+    "color": "brown with tan mottling",
+    "markings": "mottled pattern with light striping",
+    "size": "small to medium",
+    "shape": "oval",
+    "surface": "ridged",
+    "fullness": "plump",
+    "health_notes": "Thai landrace strain \u2014 compact seeds typical of the Tanaosri family.",
+    "source": "inferred_landrace"
+  },
+  {
+    "strain": "Thaistick Foi Thong",
+    "color": "golden-brown to amber",
+    "markings": "distinctive golden-amber hue with darker mottling",
+    "size": "medium",
+    "shape": "oval to teardrop",
+    "surface": "waxy ridged",
+    "fullness": "plump",
+    "health_notes": "Classic Thai landrace \u2014 notable golden-amber coloration distinguishes it from most strains.",
+    "source": "inferred_landrace"
+  }
+]

@@ -10,6 +10,7 @@ import strains as strain_db
 import analytes as analyte_db
 import diseases as disease_db
 import seed_diseases as seed_disease_db
+import seed_strains as seed_strain_db
 
 load_dotenv()
 
@@ -156,9 +157,19 @@ If the image does NOT contain cannabis, set is_cannabis to false and all scores 
 """
 
 
-_SEED_DISEASE_NAMES = ", ".join(seed_disease_db.get_names())
+_SEED_DISEASE_NAMES   = ", ".join(seed_disease_db.get_names())
+_SEED_STRAIN_REFS     = seed_strain_db.reference_summary()
 
-SEED_PROMPT = f"""You are an expert cannabis seed analyst. Analyze this image of cannabis seeds and provide a full quality and health assessment.
+SEED_PROMPT = f"""You are an expert cannabis seed analyst with access to a visual reference database of 17 known healthy cannabis seed strains (Mendeley dataset, Chumchu & Patil 2022).
+
+── HEALTHY SEED REFERENCE (all confirmed viable seeds from the dataset) ──
+{_SEED_STRAIN_REFS}
+
+Use the above as your baseline for what healthy, mature cannabis seeds look like.
+Deviations from these characteristics (wrong color, pale/green, flat, damaged shell, etc.) should lower quality scores and flag health issues.
+
+── SEED QUALITY SCORING ──
+Score each criterion from 0–10 using these specific indicators:
 
 ── SEED QUALITY SCORING ──
 Score each criterion from 0–10:
@@ -226,6 +237,7 @@ Return ONLY a raw JSON object (no markdown fences):
   "negatives": ["<point>", "<point>"],
   "seed_count_estimate": "<single | few (2-5) | batch (6+) | unknown>",
   "batch_uniformity": "<high | medium | low | n/a>",
+  "closest_strain_match": "<name of closest matching strain from the reference list above, or null if uncertain>",
   "detected_issues": [
     {{ "name": "<condition name>", "confidence": <0.0-1.0>, "evidence": "<what you saw>" }}
   ],
