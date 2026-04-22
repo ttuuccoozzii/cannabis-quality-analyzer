@@ -3,140 +3,280 @@
     "id": "powdery_mildew",
     "name": "Powdery Mildew",
     "category": "fungal",
-    "visual_symptoms": ["white powdery spots on leaves", "white dusty coating on buds", "grayish-white film over surface"],
     "severity": "high",
-    "causes": "High humidity, poor air circulation, temperatures between 60-80°F",
-    "treatment": "Remove affected areas immediately. Apply neem oil or potassium bicarbonate spray. Improve airflow and reduce humidity below 50%.",
-    "risk_to_consumer": "Inhaling mold spores can cause respiratory issues. Affected product should not be consumed."
+    "visual_symptoms": ["white powdery spots on leaves", "fuzzy flour-like white coating on leaves stems and buds", "white dusty circular patches on foliage"],
+    "causes": "High humidity, low or no airflow, poor ventilation, leaf-on-leaf contact trapping moisture",
+    "treatment": "Remove affected leaves with wet paper towel. Improve airflow with oscillating and exhaust fans. Spray with 1 part milk to 3 parts water, or potassium bicarbonate (1 tbsp per gallon). For buds: no sprays — improve environment only.",
+    "risk_to_consumer": "Mold spores can cause respiratory issues. Heavily affected buds should not be consumed."
   },
   {
     "id": "botrytis",
     "name": "Botrytis (Bud Rot)",
     "category": "fungal",
-    "visual_symptoms": ["gray or brown fuzzy mold inside buds", "darkened browning inner bud tissue", "fluffy gray spores on bud surface", "mushy or wet bud texture"],
     "severity": "critical",
-    "causes": "Excess moisture, high humidity above 60%, poor airflow during flowering",
-    "treatment": "Immediately quarantine and discard all affected buds. Cannot be treated — entire affected colas must be removed. Sanitize grow space.",
-    "risk_to_consumer": "Extremely dangerous. Botrytis produces mycotoxins. Affected product must never be consumed."
+    "visual_symptoms": ["gray or brown fuzzy mold inside or on buds", "sudden yellowing of leaves on large buds within 1-2 days", "dark gray or brown rotting bud interior", "dusty speckled appearance inside buds", "white or gray fuzzy growth at leaf bases", "leaves turning purple near infected areas", "affected areas easily separate from healthy tissue"],
+    "causes": "Botrytis cinerea fungus. Humidity above 60% RH during flowering, poor airflow, temperatures below 60°F, dense buds with poor air penetration",
+    "treatment": "Immediately remove and discard ALL affected buds and nearby buds. Do not let infected material contact other areas. Increase airflow, lower humidity below 50%, defoliate dense plants. No sprays work on established bud rot.",
+    "risk_to_consumer": "CRITICAL — never consume. Botrytis produces mycotoxins that are toxic when inhaled or ingested. All affected buds must be discarded."
+  },
+  {
+    "id": "leaf_septoria",
+    "name": "Leaf Septoria (Yellow Leaf Spot)",
+    "category": "fungal",
+    "severity": "medium",
+    "visual_symptoms": ["round yellow or brown spots on lower leaves", "spots with darkened borders and small raised center resembling a pimple", "circular lesions with tiny dark specks at centers", "yellow spots transitioning to brown over time"],
+    "causes": "Fungal or bacterial infection. Spores overwinter in soil and spread via wind and rain.",
+    "treatment": "Remove all affected leaves carefully. Apply copper-based fungicide or neem oil (avoid buds). Improve air circulation. Keep ground clean of fallen leaves.",
+    "risk_to_consumer": "Does not directly affect bud safety but indicates poor plant health."
+  },
+  {
+    "id": "tobacco_mosaic_virus",
+    "name": "Tobacco Mosaic Virus (TMV)",
+    "category": "viral",
+    "severity": "high",
+    "visual_symptoms": ["uneven stripes of light and dark green on leaves", "yellow spots or mottled patterns on foliage", "twisted curved or abnormal leaf growth", "dark green areas appearing thicker in texture", "slow growth and sickly overall appearance"],
+    "causes": "Direct plant-to-plant contact, contaminated hands or tools, tobacco product handling near plants",
+    "treatment": "No cure — infected plant carries TMV permanently. Remove and isolate affected plants. Enforce strict hand-washing between plant contact. Sanitize all tools.",
+    "risk_to_consumer": "No known direct risk to consumer but indicates severely compromised plant health and reduced yield quality."
   },
   {
     "id": "nitrogen_deficiency",
     "name": "Nitrogen Deficiency",
     "category": "nutrient",
-    "visual_symptoms": ["yellowing of lower/older leaves starting from tips", "pale green or yellow leaves", "leaves turning light green then yellow then dying"],
     "severity": "medium",
-    "causes": "Insufficient nitrogen in growing medium, pH imbalance preventing nitrogen uptake, overwatering",
-    "treatment": "Apply nitrogen-rich fertilizer. Check and adjust soil pH to 6.0-7.0. Avoid overwatering.",
-    "risk_to_consumer": "Does not pose a direct health risk but indicates lower quality and possibly underdeveloped buds."
+    "visual_symptoms": ["older lower leaves turning yellow starting from tips", "pale green or light-colored foliage throughout plant", "yellow leaves turning soft and folding inward before becoming crispy", "progressive yellowing from bottom to top of plant", "new growth at top remains green"],
+    "causes": "Insufficient nitrogen in medium, root zone pH too low preventing absorption, overwatering limiting uptake",
+    "treatment": "Apply high-nitrogen nutrients. Adjust pH to 6.0-7.0 for soil. Note: yellowing in late flowering is normal and not a deficiency.",
+    "risk_to_consumer": "No direct health risk. Indicates lower bud development and cannabinoid density."
+  },
+  {
+    "id": "nitrogen_toxicity",
+    "name": "Nitrogen Toxicity",
+    "category": "nutrient",
+    "severity": "medium",
+    "visual_symptoms": ["dark green shiny leaves", "leaves curling downward at tips in talon-like claw formation", "leaves eventually turning yellow or brown and dropping", "weak stems and slow growth"],
+    "causes": "Excessive nutrient application, using vegetative nutrients during flowering, hot soils with built-in nutrients, time-release fertilizers",
+    "treatment": "Reduce nitrogen feeding immediately. Switch to low-nitrogen bloom formula. Flush with pH-balanced water if in nutrient-rich soil.",
+    "risk_to_consumer": "Excess nitrogen in buds can create harsh unpleasant taste when consumed."
   },
   {
     "id": "phosphorus_deficiency",
     "name": "Phosphorus Deficiency",
     "category": "nutrient",
-    "visual_symptoms": ["purple or reddish discoloration on leaves and stems", "dark green leaves turning bluish-green", "leaves developing brown edges", "slow bud development"],
     "severity": "medium",
-    "causes": "Low soil pH (below 6.0), cold root zone temperatures, lack of phosphorus in medium",
-    "treatment": "Raise soil pH to 6.0-7.0. Apply phosphorus supplement (e.g. bone meal). Warm the root zone.",
-    "risk_to_consumer": "No direct health risk. Indicates suboptimal growing conditions."
+    "visual_symptoms": ["dark green blue or grayish lower leaves", "bronze purple or brown spots and splotches", "leaves thickening and curling downward feeling dry or stiff", "bright red or purple stems", "progressive yellowing before leaves drop", "symptoms starting at base and climbing upward"],
+    "causes": "pH imbalance (most common in flowering), poor root health, overwatering, cold temperatures below 60°F, nutrient salt buildup blocking absorption",
+    "treatment": "Adjust pH: soil 6.2-7.0, hydro 5.5-6.2. Improve root care. Warm root zone to 65-75°F. Flush with pH-balanced water and bloom nutrients.",
+    "risk_to_consumer": "No direct risk. Indicates underdeveloped buds with lower cannabinoid content."
   },
   {
     "id": "potassium_deficiency",
     "name": "Potassium Deficiency",
     "category": "nutrient",
-    "visual_symptoms": ["brown scorched leaf edges and tips", "yellowing between leaf veins on older leaves", "curling or cupping of leaves", "weak stems"],
     "severity": "medium",
-    "causes": "Insufficient potassium, pH imbalance, excess calcium or magnesium blocking uptake",
-    "treatment": "Apply potassium-rich supplement. Check and adjust pH. Flush medium if salt buildup is present.",
-    "risk_to_consumer": "No direct health risk. May indicate harvested product has lower terpene and cannabinoid density."
-  },
-  {
-    "id": "spider_mites",
-    "name": "Spider Mite Infestation",
-    "category": "pest",
-    "visual_symptoms": ["tiny white or yellow speckles on leaves (stippling)", "fine webbing between leaves and buds", "dusty or dirty-looking undersides of leaves", "bronze or rust-colored patches"],
-    "severity": "high",
-    "causes": "Hot dry conditions, low humidity, introduction of infected plants or tools",
-    "treatment": "Apply insecticidal soap, neem oil, or predatory mites. Increase humidity. Isolate affected plants.",
-    "risk_to_consumer": "Mites and their waste on buds are contaminants. Heavily infested product should not be consumed."
-  },
-  {
-    "id": "broad_mites",
-    "name": "Broad Mite Infestation",
-    "category": "pest",
-    "visual_symptoms": ["twisted or curled new growth", "glossy or wet-looking bud tips", "blistered or hardened leaf surface", "abnormally small new leaves"],
-    "severity": "high",
-    "causes": "Introduction via infected clones or tools. Too small to see with naked eye.",
-    "treatment": "Apply spinosad or neem oil. Increase temperature temporarily to 45°C for 15 minutes. Replace heavily affected plants.",
-    "risk_to_consumer": "Mite contamination on harvested product is undesirable. Affects taste and safety."
-  },
-  {
-    "id": "heat_stress",
-    "name": "Heat Stress",
-    "category": "environmental",
-    "visual_symptoms": ["upward leaf curling or cupping (taco shape)", "brown or burned leaf tips and edges", "bleached or pale yellow patches on top buds closest to light", "wilting despite adequate water"],
-    "severity": "medium",
-    "causes": "Temperatures above 85°F (30°C), lights too close to canopy",
-    "treatment": "Increase airflow, lower temperature, raise lights. Increase watering frequency.",
-    "risk_to_consumer": "Reduces terpene and cannabinoid content. No direct health risk."
-  },
-  {
-    "id": "light_burn",
-    "name": "Light Burn / Bleaching",
-    "category": "environmental",
-    "visual_symptoms": ["white or yellow bleached areas on top buds", "pale almost white upper leaves and calyxes", "yellow or white coloring confined to areas closest to light source"],
-    "severity": "medium",
-    "causes": "Grow lights too close to the canopy, especially high-intensity LEDs or HPS",
-    "treatment": "Raise lights to recommended distance. Reduce light intensity if adjustable.",
-    "risk_to_consumer": "Bleached buds have reduced cannabinoid content. Not a safety risk."
-  },
-  {
-    "id": "calcium_deficiency",
-    "name": "Calcium Deficiency",
-    "category": "nutrient",
-    "visual_symptoms": ["brown or rust spots on leaves", "necrotic spots with yellow halos", "distorted or weak new growth", "hollow or weak stems"],
-    "severity": "medium",
-    "causes": "Low calcium in medium, pH below 6.0, excess potassium blocking calcium uptake",
-    "treatment": "Add calcium supplement (e.g. calcium-magnesium). Adjust pH to 6.2-7.0.",
-    "risk_to_consumer": "No direct health risk."
+    "visual_symptoms": ["yellow brown or burnt edges and tips on older leaves", "yellowing in leaf margins near burnt edges", "brown burnt-looking leaf tips appearing pale or bleached", "leaf tips curling as edges turn brown", "interior leaf veins remaining green", "weakened stems"],
+    "causes": "Improper pH levels, overwatering, heat or transplant stress, heavily filtered or RO water lacking minerals",
+    "treatment": "Adjust pH: soil 6.0-7.0, hydro/coco 5.5-6.5. Flush with pH-balanced water containing standard nutrients.",
+    "risk_to_consumer": "No direct risk. May indicate lower terpene and cannabinoid density in harvested product."
   },
   {
     "id": "magnesium_deficiency",
     "name": "Magnesium Deficiency",
     "category": "nutrient",
-    "visual_symptoms": ["yellowing between leaf veins (interveinal chlorosis)", "leaves staying green along veins but turning yellow in between", "older lower leaves affected first"],
     "severity": "low",
-    "causes": "Low magnesium in growing medium, pH below 6.0, excess calcium blocking uptake",
-    "treatment": "Apply Epsom salt (magnesium sulfate) foliar spray or soil drench. Adjust pH.",
+    "visual_symptoms": ["yellowing between leaf veins while veins remain green (interveinal chlorosis)", "yellowing appearing on lower and older leaves first", "leaf edges becoming yellow or bright green and crispy", "light brown spotting developing as problem worsens", "red stems may appear"],
+    "causes": "Incorrect pH (too acidic), calcium-only supplements without magnesium, growing in coco coir or RO water",
+    "treatment": "Flush with pH-balanced water. Adjust pH to 6.0-7.0 for soil. Apply Cal-Mag supplement or Epsom salt (1 tsp per gallon). Expect improvement within one week.",
     "risk_to_consumer": "No direct health risk."
   },
   {
-    "id": "root_rot",
-    "name": "Root Rot",
-    "category": "fungal",
-    "visual_symptoms": ["wilting despite wet soil", "yellowing leaves that don't recover with watering", "dark brown or slimy roots if visible", "stunted slow growth", "overall drooping plant"],
-    "severity": "critical",
-    "causes": "Overwatering, poor drainage, pythium or fusarium fungi, lack of oxygen at roots",
-    "treatment": "Improve drainage. Allow medium to dry out. Apply beneficial bacteria or hydrogen peroxide drench. In hydroponics, clean reservoir completely.",
-    "risk_to_consumer": "Systemic fungal infection can affect bud quality and safety."
+    "id": "calcium_deficiency",
+    "name": "Calcium Deficiency",
+    "category": "nutrient",
+    "severity": "medium",
+    "visual_symptoms": ["brown or bronze splotches or spots on leaves", "brown patches on actively growing foliage", "slightly purple discoloration especially under LED lights", "crinkling mottling and curled leaf tips", "stunted or distorted new growth", "weak flimsy stems prone to cracking"],
+    "causes": "Low pH at roots, filtered or RO water lacking calcium, hydroponic or coco growing without supplementation, excess potassium blocking absorption",
+    "treatment": "Flush with pH-balanced water. Adjust pH: soil 6.2-7.0, coco/hydro 6.2-6.5. Apply CaliMagic (1 tsp per gallon). Results visible within one week on new growth.",
+    "risk_to_consumer": "No direct health risk."
   },
   {
-    "id": "overwatering",
-    "name": "Overwatering",
+    "id": "iron_deficiency",
+    "name": "Iron Deficiency",
+    "category": "nutrient",
+    "severity": "medium",
+    "visual_symptoms": ["newest leaves turning bright yellow or white when first emerging", "yellowing appearing first on upper inner foliage", "damaged yellow leaves may show green recovery starting from tips toward base", "in severe cases affected leaves dry up and die"],
+    "causes": "pH too high at root zone (above 7.0 locks out iron), stress conditions, root problems, excessive nutrients causing lockout",
+    "treatment": "Adjust pH: soil 6.0-6.5, coco/hydro 5.5-6.5. Flush system with clean pH-balanced water. Apply Cal-Mag if deficiency persists. Expect recovery within one week.",
+    "risk_to_consumer": "No direct health risk."
+  },
+  {
+    "id": "zinc_deficiency",
+    "name": "Zinc Deficiency",
+    "category": "nutrient",
+    "severity": "medium",
+    "visual_symptoms": ["yellowing between veins on younger leaves while veins remain green", "leaf tips becoming discolored and dying", "unique banded or striped appearance on leaves", "vertical growth slowing or stopping", "new leaves clustering together with reduced node spacing", "buds stopping growth or deteriorating in flowering"],
+    "causes": "pH imbalance (zinc locks out at higher pH), RO water, root problems, overwatering",
+    "treatment": "Adjust pH: soil 6.0-6.5, hydro 5.5-6.0. Flush with clean pH-adjusted water. Most growers don't need extra zinc — focus on pH correction.",
+    "risk_to_consumer": "No direct health risk."
+  },
+  {
+    "id": "nutrient_burn",
+    "name": "Nutrient Burn",
+    "category": "nutrient",
+    "severity": "medium",
+    "visual_symptoms": ["brown or yellow leaf tips and edges", "tips turning yellow then tan gold or brown then rusty and crispy", "burn spreading inward across leaves in advanced cases", "bronze spotting around leaf edges", "leaf tips curling upward or downward", "dark green overall foliage"],
+    "causes": "Excessive nutrient feeding, high-nutrient soils, wrong nutrient type for growth stage, low light causing reduced nutrient uptake",
+    "treatment": "Flush with pH-balanced water to remove excess nutrients. Reduce nutrient concentration by half. Do not increase feeding until recovery. Damaged leaves will not recover.",
+    "risk_to_consumer": "Excess nutrients at harvest creates unpleasant chemical taste. Indicates potential chemical residue in buds."
+  },
+  {
+    "id": "heat_stress",
+    "name": "Heat Stress",
     "category": "environmental",
-    "visual_symptoms": ["drooping leaves that are firm and puffy (not limp)", "leaves curling downward", "very dark green color", "slow growth", "yellowing of lower leaves"],
-    "severity": "low",
-    "causes": "Watering too frequently, pots without drainage, compacted soil",
-    "treatment": "Allow soil to dry out fully before next watering. Improve drainage. Water less frequently.",
-    "risk_to_consumer": "No direct health risk but reduces overall quality."
+    "severity": "medium",
+    "visual_symptoms": ["leaves cupping upward into canoe or taco shape", "serrated leaf edges flipping upward", "yellow or brown spotting with burnt appearance", "foxtailing on buds (spire-like growth)", "airy underdeveloped bud structure", "leaves pointing upward and wilting during extreme heat"],
+    "causes": "Grow lights too close, ambient temperature above 85°F (30°C), low humidity combined with heat, insufficient water, hot water in hydroponic systems",
+    "treatment": "Raise lights to correct distance. Increase airflow and reduce temperature. Increase watering frequency. Apply seaweed kelp extract for recovery.",
+    "risk_to_consumer": "Reduces terpene and cannabinoid content. Foxtailed buds have lower potency. No direct safety risk."
+  },
+  {
+    "id": "light_burn",
+    "name": "Light Burn / Bleaching",
+    "category": "environmental",
+    "severity": "medium",
+    "visual_symptoms": ["yellow leaves at plant top directly under lights", "bleached white or pale yellow patches on upper buds", "inner veins remaining green while margins yellow", "brown crispy sugar leaves", "symptoms concentrated on parts closest to light source", "red or purple discoloration instead of yellow in some cases"],
+    "causes": "Grow lights too close to canopy, light intensity too high, extended exposure, high-power LED lights",
+    "treatment": "Increase distance between lights and canopy. Reduce light intensity. Bleached buds have reduced cannabinoid content — cannot be reversed.",
+    "risk_to_consumer": "Bleached buds have significantly reduced potency. No safety risk."
   },
   {
     "id": "windburn",
     "name": "Windburn",
     "category": "environmental",
-    "visual_symptoms": ["clawing or downward curling of leaves", "affected leaves close to fans", "brown or dry edges on leaves facing airflow"],
     "severity": "low",
-    "causes": "Fans blowing directly on plants at high speed",
-    "treatment": "Redirect fans so air circulates without hitting plants directly.",
+    "visual_symptoms": ["clawed or curled leaves forming claw shapes", "brown or bronze spots resembling burns", "leaf damage confined to areas directly in front of fans", "leaves further from fans appear healthy"],
+    "causes": "Fans blowing directly and too strongly onto plants",
+    "treatment": "Redirect fans to blow at walls not directly on plants. Create gentle circulation — leaves should rustle gently, not wave vigorously.",
     "risk_to_consumer": "No health risk."
+  },
+  {
+    "id": "overwatering",
+    "name": "Overwatering",
+    "category": "environmental",
+    "severity": "low",
+    "visual_symptoms": ["leaves drooping and curling downward along entire length soon after watering", "leaves feeling firm and puffy not limp", "yellowing resembling nutrient deficiencies", "stunted growth", "very dark green color", "soil staying wet for 4-5+ days"],
+    "causes": "Watering too frequently, growing medium retaining too much moisture, containers without drainage holes, roots starved of oxygen",
+    "treatment": "Allow soil to dry fully between waterings. Improve drainage. Water only when top inch of medium is dry. Increase temperature and airflow to accelerate drying.",
+    "risk_to_consumer": "No direct health risk but significantly reduces quality and encourages root rot and fungal issues."
+  },
+  {
+    "id": "underwatering",
+    "name": "Underwatering",
+    "category": "environmental",
+    "severity": "low",
+    "visual_symptoms": ["drooping wilting leaves that improve after watering", "leaves appearing papery and thin", "limp lifeless foliage lacking rigidity", "plants perking up noticeably after each watering", "yellowing and leaf curling in chronic cases", "burnt-looking tips in chronic cases"],
+    "causes": "Inadequate watering frequency or volume, pot-bound conditions, small container size",
+    "treatment": "Water thoroughly until runoff drains from pot bottom. Water more frequently. Transplant to larger container if rootbound.",
+    "risk_to_consumer": "No direct health risk. Underdeveloped buds with lower potency."
+  },
+  {
+    "id": "root_rot",
+    "name": "Root Rot",
+    "category": "fungal",
+    "severity": "critical",
+    "visual_symptoms": ["wilting despite wet soil", "yellowing leaves that don't recover with watering", "drooping appearance with curled or cupped leaves", "stunted slow growth", "overall plant drooping", "brown slimy roots if visible"],
+    "causes": "Overwatering, poor drainage, pythium or fusarium fungi, lack of oxygen at roots, warm water temperatures in hydroponic systems",
+    "treatment": "Identify root cause. Improve drainage, allow medium to dry. Apply beneficial bacteria (Hydroguard, Great White). For hydro: clean reservoir completely. Avoid hydrogen peroxide — it kills beneficial bacteria.",
+    "risk_to_consumer": "Systemic fungal infection can affect bud quality and safety. May indicate contaminated product."
+  },
+  {
+    "id": "spider_mites",
+    "name": "Spider Mites",
+    "category": "pest",
+    "severity": "high",
+    "visual_symptoms": ["tiny yellow orange or white speckles on leaves (stippling)", "fine silk webbing between leaves and buds", "leaves turning yellow or bronze from damage", "dusty or dirty-looking undersides of leaves", "in severe infestations entire buds covered in webbing"],
+    "causes": "Hot dry conditions, low humidity, stagnant air, introduction from infected clones or contaminated tools",
+    "treatment": "Apply Spinosad (Captain Jack's), insecticidal soap, neem oil, or Grower's Ally spray. Rotate treatments every 2-3 days to prevent resistance. Reduce temperature and increase airflow. Treat at least once after mites appear gone.",
+    "risk_to_consumer": "Mites and webbing on buds are contaminants. Heavily infested product should not be consumed."
+  },
+  {
+    "id": "broad_mites",
+    "name": "Broad Mites",
+    "category": "pest",
+    "severity": "high",
+    "visual_symptoms": ["twisted drooping new growth at plant top", "glossy blistered leaves with wet or plastic-like appearance", "leaf edges curling upward", "leaves turning yellow bronze or brown before dying", "damage concentrated at specific areas with heaviest infestation", "flowering buds becoming sickly and dying"],
+    "causes": "Introduction from infected clones or contaminated tools, warm conditions. Too small to see with naked eye.",
+    "treatment": "Remove infected leaves and stems. Apply neem oil, insecticidal soap, Earth's Ally 3-in-1, or Mite-B-Gone daily for severe cases. Use predatory mites (Neoseiulus). Continue treatment weekly for 5+ weeks after mites appear gone.",
+    "risk_to_consumer": "Mite contamination on harvested buds is undesirable. Affects taste and safety."
+  },
+  {
+    "id": "hemp_russet_mites",
+    "name": "Hemp Russet Mites",
+    "category": "pest",
+    "severity": "high",
+    "visual_symptoms": ["curling of leaf edges", "dull-colored brittle leaves", "beige or yellow mass at plant tops (the mites themselves)", "buds beginning to die with distortions on new growth", "plant drooping especially at infestation sites", "brown or yellow spots from leaf stress", "symptoms worsening toward plant tops"],
+    "causes": "Microscopic mites that lay eggs inside plant tissue. Year-round reproduction. Standard miticides often ineffective.",
+    "treatment": "Apply neem oil, insecticidal soaps, Mighty Wash, or Avid/Forbid miticide (not during flowering). Use predatory mites. Treat multiple times weekly. Continue for 5 weeks after mites disappear.",
+    "risk_to_consumer": "Mite infestation on buds reduces quality and safety."
+  },
+  {
+    "id": "aphids",
+    "name": "Aphids",
+    "category": "pest",
+    "severity": "medium",
+    "visual_symptoms": ["small soft-bodied insects on undersides of leaves and stems", "white green yellow black brown or red tiny bugs", "yellowing or wilting leaves from excessive feeding", "black sooty mold from honeydew deposits", "silvery exoskeletons (shed skins) on leaves"],
+    "causes": "Winged colonizer aphids introduce infestation. Warm conditions accelerate reproduction.",
+    "treatment": "Spray off with pressurized water. Apply insecticidal soap, neem oil, or Spinosad. Control ants which farm aphids. Introduce ladybugs as biological control.",
+    "risk_to_consumer": "Aphid presence on buds indicates contamination. Affected product should be inspected carefully."
+  },
+  {
+    "id": "thrips",
+    "name": "Thrips",
+    "category": "pest",
+    "severity": "medium",
+    "visual_symptoms": ["shiny silver or bronze irregular spots on leaves", "spots larger and more irregular than spider mite damage", "appearance resembling dried spit or tiny snail trails", "infested leaves eventually dying if damage persists", "pale tubular worm-like nymphs on leaves"],
+    "causes": "Flying insects entering grow space from outdoors or contaminated plants",
+    "treatment": "Apply insecticidal soap, neem oil, Spinosad, or Pyrethrins (after sunset only — toxic to bees). Sprinkle diatomaceous earth on soil.",
+    "risk_to_consumer": "Thrip presence on buds is a contaminant concern."
+  },
+  {
+    "id": "fungus_gnats",
+    "name": "Fungus Gnats",
+    "category": "pest",
+    "severity": "medium",
+    "visual_symptoms": ["tiny black or dark brown flies buzzing around soil surface", "wilting yellowing or drooping leaves unexplained by other causes", "stunted growth or growth cessation", "browning spots and leaf curling mimicking nutrient deficiencies", "tiny white translucent larvae with black heads in top soil layer"],
+    "causes": "Overwatering is the primary trigger. Warm wet topsoil encourages larvae. Larvae damage roots and spread pathogens.",
+    "treatment": "Reduce watering — let top inch of soil dry completely between waterings. Place yellow sticky traps. Apply Bacillus thuringiensis (Mosquito Bits) in water, hydrogen peroxide drench (1:4 with water), or Essentria IC3. Without wet topsoil gnats naturally disappear.",
+    "risk_to_consumer": "Gnats spread pathogens like root rot. Heavily infested plants may have compromised root systems affecting quality."
+  },
+  {
+    "id": "whiteflies",
+    "name": "Whiteflies",
+    "category": "pest",
+    "severity": "medium",
+    "visual_symptoms": ["tiny white moth-like insects flying when plant is disturbed", "white spots on upper leaf surfaces", "leaf discoloration and deterioration", "round nymph forms on leaf undersides", "eggs practically glued to leaf surface"],
+    "causes": "Entry from outdoors or contaminated plants",
+    "treatment": "Apply insecticidal soap, neem oil, Spinosad, or Essentria IC3. Thorough coverage of leaf undersides required. Repeat applications needed.",
+    "risk_to_consumer": "Whitefly infestation on buds is a contaminant. Affects product cleanliness."
+  },
+  {
+    "id": "mealybugs",
+    "name": "Mealybugs",
+    "category": "pest",
+    "severity": "medium",
+    "visual_symptoms": ["white hairy fuzzy insects on stems and leaf undersides", "white patches resembling mold or webbing", "sticky honeydew substance leading to black sooty mold", "white powdery or webbing-like patches on leaves and stems"],
+    "causes": "Warm growing environments, poor plant hygiene",
+    "treatment": "Blast off with pressurized water. Apply insecticidal soap, neem oil, or rubbing alcohol spray (9:1 water to alcohol). Introduce ladybugs. Apply diatomaceous earth to soil.",
+    "risk_to_consumer": "Mealybug contamination on buds reduces product quality and safety."
+  },
+  {
+    "id": "leaf_miners",
+    "name": "Leaf Miners",
+    "category": "pest",
+    "severity": "low",
+    "visual_symptoms": ["pale winding trails or tunnels on leaf surface", "pest lives inside leaf tissue creating visible tracks", "distinctive tunneling pattern through leaf"],
+    "causes": "Fly larvae tunneling through leaf tissue",
+    "treatment": "Remove and discard all affected leaves. Apply targeted insecticides for leaf miners.",
+    "risk_to_consumer": "Primarily affects leaves, rarely reaches buds. Low consumer risk."
   }
 ]

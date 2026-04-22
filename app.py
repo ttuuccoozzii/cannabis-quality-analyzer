@@ -66,14 +66,45 @@ Based on the visual characteristics and likely strain type, estimate:
 - Estimated CBD range as a string e.g. "0.1-0.5%", or null if uncertain
 
 ── DISEASE & HEALTH DETECTION ──
-Carefully inspect the image for any signs of plant disease, pest infestation, nutrient deficiency, or environmental stress.
-Look specifically for:
-- Fungal signs: white powdery coating, gray fuzzy mold, dark spots, slimy or mushy areas
-- Pest signs: webbing, stippling (tiny dots), unusual speckles, sticky residue
-- Nutrient issues: yellowing, purple/red discoloration, brown edges, interveinal chlorosis
-- Environmental stress: burned tips, bleached patches, twisted or clawing leaves, wilting
+Carefully inspect the image for any signs of disease, pest infestation, nutrient deficiency, or environmental stress.
 
-From the following known conditions, list only the ones you can visually confirm or strongly suspect:
+Use these specific visual indicators to identify conditions:
+
+FUNGAL:
+- Powdery Mildew: white powdery/floury spots or circular patches on leaves or buds
+- Botrytis (Bud Rot): gray/brown fuzzy mold inside buds, sudden leaf yellowing on large buds, dusty speckled interior, leaves turning purple near infection
+- Leaf Septoria: round yellow/brown spots with darkened borders and dark speck at center on lower leaves
+- Root Rot: wilting despite wet medium, yellowing not responsive to watering
+
+NUTRIENT DEFICIENCIES:
+- Nitrogen: older lower leaves yellowing from tips upward, pale overall foliage, top stays green
+- Nitrogen Toxicity: dark shiny leaves, downward claw curl at leaf tips
+- Phosphorus: dark/blue-gray lower leaves, bronze/purple spots, red stems, leaves thickening and curling
+- Potassium: brown/burnt edges and tips on older leaves, yellowing margins, green inner veins
+- Magnesium: interveinal chlorosis (yellow between veins, green veins) on lower leaves, crispy edges
+- Calcium: brown/bronze spots on actively growing leaves, crinkling, purple tints under LED
+- Iron: newest leaves bright yellow or white when emerging, yellowing on upper inner foliage
+- Zinc: interveinal yellowing on younger leaves, banded appearance, tips dying, clustered new growth
+- Nutrient Burn: crispy brown/yellow tips spreading inward, bronze spotting, overall dark green leaves
+
+ENVIRONMENTAL:
+- Heat Stress: leaves cupping upward into taco/canoe shape, foxtailing on buds, airy bud structure
+- Light Burn: bleached white/yellow patches on top buds directly under lights, green inner veins
+- Windburn: clawed leaf shapes, bronze spots confined to areas near fans
+- Overwatering: firm downward-curling leaves, dark green color, drooping soon after watering
+- Underwatering: papery thin limp wilting leaves that improve after watering
+
+PESTS:
+- Spider Mites: tiny yellow/white speckles (stippling), fine silk webbing on buds or leaves
+- Broad Mites: twisted glossy blistered new growth with wet plastic appearance, curling leaf edges
+- Hemp Russet Mites: beige/yellow mass at tops, dull brittle leaves, distorted new growth
+- Aphids: soft-bodied insects on leaf undersides, honeydew causing black sooty mold
+- Thrips: shiny silver/bronze irregular spots resembling dried spit or snail trails
+- Fungus Gnats: tiny dark flies near soil, wilting mimicking nutrient issues
+- Whiteflies: tiny white moth-like insects, white spots on upper leaves
+- Mealybugs: white hairy fuzzy insects, white powdery patches, honeydew deposits
+
+From the following known conditions, list only those you can visually confirm or strongly suspect:
 {_DISEASE_NAMES}
 
 For each detected condition provide: name, confidence (0.0–1.0), and the specific visual evidence you observed.
