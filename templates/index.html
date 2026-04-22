@@ -9,43 +9,38 @@
 <body>
   <div class="page">
 
-    <!-- Header -->
     <header>
       <div class="logo">🌿 CannaGrade</div>
-      <p class="tagline">AI-powered cannabis quality analysis &amp; strain identification</p>
+      <p class="tagline">AI-powered cannabis quality analysis — buds &amp; seeds</p>
     </header>
 
-    <!-- Upload card -->
     <main>
+      <!-- Upload -->
       <div class="card upload-card" id="uploadCard">
         <div class="drop-zone" id="dropZone">
           <div class="drop-icon">📷</div>
-          <p class="drop-label">Drop an image here or <label for="fileInput" class="browse-link">browse</label></p>
-          <p class="drop-hint">JPG, PNG, WEBP — max 16 MB</p>
+          <p class="drop-label">Drop a photo here or <label for="fileInput" class="browse-link">browse</label></p>
+          <p class="drop-hint">Works with buds or seeds · JPG, PNG, WEBP · max 16 MB</p>
           <input type="file" id="fileInput" accept="image/*" hidden />
         </div>
-
         <div class="preview-wrap hidden" id="previewWrap">
           <img id="previewImg" alt="Preview" />
           <button class="btn-ghost" id="clearBtn">✕ Clear</button>
         </div>
-
-        <button class="btn-primary" id="analyzeBtn" disabled>Analyze Quality &amp; Identify Strain</button>
+        <button class="btn-primary" id="analyzeBtn" disabled>Analyze</button>
       </div>
 
       <!-- Loader -->
       <div class="card loader-card hidden" id="loaderCard">
         <div class="spinner"></div>
-        <p>Analyzing image &amp; searching strain database…</p>
+        <p id="loaderText">Detecting image type…</p>
       </div>
 
-      <!-- Results -->
-      <div class="results-wrap hidden" id="resultsWrap">
+      <!-- ── BUD RESULTS ── -->
+      <div class="results-wrap hidden" id="budResults">
 
-        <!-- Quality card -->
-        <div class="card results-card" id="resultsCard">
-          <div class="section-label">Quality Assessment</div>
-
+        <div class="card results-card">
+          <div class="section-label">🌸 Bud Quality Assessment</div>
           <div class="grade-banner" id="gradeBanner">
             <span class="grade-letter" id="gradeLetter">—</span>
             <div class="grade-info">
@@ -53,75 +48,88 @@
               <span class="overall-score" id="overallScore">0 / 100</span>
             </div>
           </div>
-
           <p class="summary-text" id="summaryText"></p>
           <div class="criteria-grid" id="criteriaGrid"></div>
-
           <div class="pros-cons">
-            <div class="pros">
-              <h4>✅ Positives</h4>
-              <ul id="prosUl"></ul>
-            </div>
-            <div class="cons">
-              <h4>⚠️ Negatives</h4>
-              <ul id="consUl"></ul>
-            </div>
+            <div class="pros"><h4>✅ Positives</h4><ul id="prosUl"></ul></div>
+            <div class="cons"><h4>⚠️ Negatives</h4><ul id="consUl"></ul></div>
           </div>
         </div>
 
-        <!-- Strain ID card -->
-        <div class="card strain-card" id="strainCard">
-          <div class="section-label">Strain Identification</div>
+        <div class="card disease-card">
+          <div class="section-label">Disease &amp; Health Detection</div>
+          <div id="diseaseContent"></div>
+        </div>
 
-          <div class="strain-header" id="strainHeader">
+        <div class="card strain-card">
+          <div class="section-label">Strain Identification</div>
+          <div class="strain-header">
             <div class="strain-type-badge" id="strainTypeBadge">—</div>
             <div class="strain-tags" id="strainTags"></div>
           </div>
-
           <div class="strain-divider"></div>
-
           <p class="strain-subtitle">Top matches from <strong id="dbSize">0</strong> strains in the Kushy dataset:</p>
           <div class="strain-list" id="strainList"></div>
         </div>
 
-        <!-- Disease detection card -->
-        <div class="card disease-card" id="diseaseCard">
-          <div class="section-label">Disease & Health Detection</div>
-          <div id="diseaseContent"></div>
-        </div>
-
-        <!-- Analyte profile card -->
-        <div class="card analyte-card" id="analyteCard">
+        <div class="card analyte-card">
           <div class="section-label">Analyte Profile <span class="dataset-badge">cannlytics/cannabis_analytes</span></div>
-
           <div class="analyte-estimates" id="analyteEstimates"></div>
-
           <div class="analyte-section">
             <h4 class="analyte-heading">🧪 Terpenes</h4>
             <div class="analyte-list" id="terpeneList"></div>
           </div>
-
-          <div class="analyte-section" id="cannabinoidSection">
+          <div class="analyte-section">
             <h4 class="analyte-heading">⚗️ Cannabinoids</h4>
             <div class="analyte-list" id="cannabinoidList"></div>
           </div>
         </div>
 
-        <button class="btn-ghost center" id="retryBtn">Analyze another image</button>
+        <button class="btn-ghost center" id="retryBtnBud">Analyze another image</button>
+      </div>
+
+      <!-- ── SEED RESULTS ── -->
+      <div class="results-wrap hidden" id="seedResults">
+
+        <div class="card results-card">
+          <div class="section-label">🌱 Seed Quality Assessment</div>
+          <div class="grade-banner" id="seedGradeBanner">
+            <span class="grade-letter" id="seedGradeLetter">—</span>
+            <div class="grade-info">
+              <span class="grade-label">Overall Grade</span>
+              <span class="overall-score" id="seedOverallScore">0 / 100</span>
+            </div>
+          </div>
+
+          <div class="seed-meta" id="seedMeta"></div>
+
+          <p class="summary-text" id="seedSummaryText"></p>
+          <div class="criteria-grid" id="seedCriteriaGrid"></div>
+          <div class="pros-cons">
+            <div class="pros"><h4>✅ Positives</h4><ul id="seedProsUl"></ul></div>
+            <div class="cons"><h4>⚠️ Negatives</h4><ul id="seedConsUl"></ul></div>
+          </div>
+        </div>
+
+        <div class="card disease-card">
+          <div class="section-label">Seed Health Issues</div>
+          <div id="seedIssueContent"></div>
+        </div>
+
+        <button class="btn-ghost center" id="retryBtnSeed">Analyze another image</button>
       </div>
 
       <!-- Not cannabis -->
       <div class="card error-card hidden" id="notCannabisCard">
         <div class="error-icon">🔍</div>
         <h3>No cannabis detected</h3>
-        <p>The uploaded image doesn't appear to contain cannabis. Please try a different photo.</p>
+        <p>The image doesn't appear to contain cannabis buds or seeds. Please try a different photo.</p>
         <button class="btn-ghost center" id="retryBtn2">Try again</button>
       </div>
-
     </main>
 
     <footer>
-      <p>For legal use only. Results are AI-generated estimates. Strain data: <a href="https://github.com/kushyapp/cannabis-dataset" target="_blank">Kushy dataset</a>. Analyte data: <a href="https://huggingface.co/datasets/cannlytics/cannabis_analytes" target="_blank">Cannlytics</a>.</p>
+      <p>For legal use only. Results are AI-generated estimates. Strain data: <a href="https://github.com/kushyapp/cannabis-dataset" target="_blank">Kushy</a>. Analyte data: <a href="https://huggingface.co/datasets/cannlytics/cannabis_analytes" target="_blank">Cannlytics</a>. Seed dataset: <a href="https://data.mendeley.com/datasets/dscww8w8zt/2" target="_blank">Mendeley</a>.</p>
     </footer>
   </div>
 

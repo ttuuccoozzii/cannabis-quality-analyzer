@@ -474,6 +474,40 @@ header { text-align: center; padding: 1rem 0; }
 .analyte-chain a { color: #58a6ff; text-decoration: none; }
 .analyte-chain a:hover { text-decoration: underline; }
 
+/* Seed meta row */
+.seed-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-bottom: 1rem;
+}
+.seed-chip {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .4rem .8rem;
+  font-size: .82rem;
+}
+.seed-chip span { color: var(--text-muted); display: block; font-size: .72rem; margin-bottom: .1rem; }
+.seed-chip strong { color: var(--text); }
+
+.germ-Excellent { color: var(--green); }
+.germ-Good      { color: #58a6ff; }
+.germ-Fair      { color: var(--yellow); }
+.germ-Poor      { color: #d29922; }
+.germ-Very\ Poor{ color: var(--red); }
+
+/* Seed issue item — reuses disease styles, adds germination impact row */
+.germination-impact {
+  margin-top: .45rem;
+  font-size: .78rem;
+  padding: .35rem .7rem;
+  border-radius: 6px;
+  border-left: 3px solid #58a6ff;
+  background: rgba(56,139,253,.06);
+  color: #58a6ff;
+}
+
 /* Utils */
 .hidden { display: none !important; }
 

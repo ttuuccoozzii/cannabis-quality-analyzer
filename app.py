@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 import strains as strain_db
 import analytes as analyte_db
 import diseases as disease_db
+import seed_diseases as seed_disease_db
 
 load_dotenv()
 
@@ -155,6 +156,86 @@ If the image does NOT contain cannabis, set is_cannabis to false and all scores 
 """
 
 
+_SEED_DISEASE_NAMES = ", ".join(seed_disease_db.get_names())
+
+SEED_PROMPT = f"""You are an expert cannabis seed analyst. Analyze this image of cannabis seeds and provide a full quality and health assessment.
+
+── SEED QUALITY SCORING ──
+Score each criterion from 0–10:
+
+1. COLOR & MARKINGS (color)
+   Good (8-10): Dark brown, grey-brown or black shell with distinct tiger stripes, mottled patterns or marbling. Rich color indicating full maturity.
+   Average (5-7): Light brown, some markings but faded or inconsistent.
+   Poor (0-4): Pale, green, or white seeds (immature). Yellowed or bleached (degraded). Uniform color with no markings.
+
+2. SIZE & FULLNESS (fullness)
+   Good (8-10): Plump, rounded, well-filled teardrop or oval shape. Feels heavy for size. No flat spots.
+   Average (5-7): Moderately full, slight flatness on one side.
+   Poor (0-4): Flat, thin, hollow-feeling, or unusually small. Shriveled or deformed.
+
+3. SHELL INTEGRITY (shell)
+   Good (8-10): Smooth, hard, uncracked shell with intact waxy coating. No chips, cracks, or holes.
+   Average (5-7): Minor surface blemishes, very small hairline marks.
+   Poor (0-4): Visible cracks, chips, holes, bore marks, or exposed interior.
+
+4. SURFACE CLEANLINESS (surface)
+   Good (8-10): Clean shell, no mold, residue, or contamination. Natural waxy sheen present.
+   Average (5-7): Minor surface debris or slight discoloration in small areas.
+   Poor (0-4): Mold, fungal coating, oily residue, pest damage evidence, or heavy discoloration.
+
+5. MATURITY & VIABILITY (maturity)
+   Good (8-10): All visual indicators of full maturity present. Strong germination potential estimated.
+   Average (5-7): Mixed maturity signals — mostly ready but some concerns.
+   Poor (0-4): Clear signs of immaturity, rot, degradation, or age beyond viability.
+
+── SEED HEALTH DETECTION ──
+Inspect carefully for these specific seed problems:
+
+- Seed Mold/Fungal Infection: white/gray/black fuzzy coating, dark powdery patches, slimy areas
+- Immature/Underdeveloped Seed: pale green/white color, flat shape, soft papery shell, no markings
+- Cracked or Damaged Shell: visible cracks/splits, chipped edges, crushed shape, exposed interior
+- Pest Damage: small holes or bore marks, tunnels, irregular pitting, frass debris on surface
+- Rot/Internal Decay: dark brown/black spreading discoloration, sunken collapsed areas, hollow feel
+- Old/Degraded Seed: bleached pale shell, dull matte finish, wrinkled surface, loss of markings
+- Chemical Contamination: unusual patchy discoloration, oily waxy residue, abnormal unnatural sheen
+- Abnormal Shape/Deformation: elongated flat or twisted shape, asymmetrical, fused seeds
+
+Known conditions to detect from: {_SEED_DISEASE_NAMES}
+
+For each detected issue: name, confidence (0.0–1.0), evidence (what you observed).
+If seeds appear healthy, return empty array.
+
+── BATCH ASSESSMENT ──
+If multiple seeds are visible, assess the overall batch quality and note any variation between seeds.
+
+Return ONLY a raw JSON object (no markdown fences):
+{{
+  "image_type": "seed",
+  "overall_score": <0-100 integer>,
+  "grade": "<AAA | AA | A | B | C>",
+  "germination_potential": "<Excellent | Good | Fair | Poor | Very Poor>",
+  "criteria": {{
+    "color":    {{ "score": <0-10>, "note": "<specific observation>" }},
+    "fullness": {{ "score": <0-10>, "note": "<specific observation>" }},
+    "shell":    {{ "score": <0-10>, "note": "<specific observation>" }},
+    "surface":  {{ "score": <0-10>, "note": "<specific observation>" }},
+    "maturity": {{ "score": <0-10>, "note": "<specific observation>" }}
+  }},
+  "summary": "<2-3 sentence overall seed quality assessment>",
+  "positives": ["<point>", "<point>"],
+  "negatives": ["<point>", "<point>"],
+  "seed_count_estimate": "<single | few (2-5) | batch (6+) | unknown>",
+  "batch_uniformity": "<high | medium | low | n/a>",
+  "detected_issues": [
+    {{ "name": "<condition name>", "confidence": <0.0-1.0>, "evidence": "<what you saw>" }}
+  ],
+  "is_cannabis": <true | false>
+}}
+
+If the image does NOT contain cannabis seeds, set is_cannabis to false and all scores to 0.
+"""
+
+
 def compress_image(image_bytes: bytes, max_size: int = 1024) -> bytes:
     img = Image.open(io.BytesIO(image_bytes))
     img = img.convert("RGB")
@@ -258,6 +339,60 @@ def enrich_with_analytes(result: dict) -> dict:
     return result
 
 
+def enrich_with_seed_issues(result: dict) -> dict:
+    """Look up full seed disease records for detected issues."""
+    detected = result.get("detected_issues", [])
+    enriched = []
+    severity_order = {"critical": 0, "high": 1, "medium": 2, "low": 3, "unknown": 4}
+
+    for item in detected:
+        rec = seed_disease_db.lookup_by_name(item.get("name", ""))
+        if rec:
+            enriched.append({
+                **seed_disease_db.format_disease(rec),
+                "confidence": item.get("confidence", 0),
+                "evidence":   item.get("evidence", ""),
+            })
+        else:
+            enriched.append({
+                "id":                 "unknown",
+                "name":               item.get("name", "Unknown"),
+                "category":           "unknown",
+                "severity":           "medium",
+                "visual_symptoms":    [],
+                "causes":             "",
+                "treatment":          "Consult a seed specialist.",
+                "germination_impact": "Unknown.",
+                "confidence":         item.get("confidence", 0),
+                "evidence":           item.get("evidence", ""),
+            })
+
+    enriched.sort(key=lambda x: (severity_order.get(x["severity"], 9), -x["confidence"]))
+    result["detected_issues"] = enriched
+    return result
+
+
+def _detect_image_type(b64: str) -> str:
+    """Ask Claude whether the image contains buds/flower or seeds."""
+    msg = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=20,
+        messages=[{
+            "role": "user",
+            "content": [
+                {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b64}},
+                {"type": "text", "text": "Does this image show cannabis seeds, or cannabis flower/buds? Reply with exactly one word: 'seeds' or 'buds' or 'other'."},
+            ],
+        }],
+    )
+    answer = msg.content[0].text.strip().lower()
+    if "seed" in answer:
+        return "seed"
+    if "bud" in answer or "flower" in answer:
+        return "bud"
+    return "other"
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -282,25 +417,19 @@ def analyze():
     b64 = base64.standard_b64encode(compressed).decode("utf-8")
 
     try:
+        image_type = _detect_image_type(b64)
+        prompt     = SEED_PROMPT if image_type == "seed" else ANALYSIS_PROMPT
+
         message = client.messages.create(
             model="claude-sonnet-4-6",
             max_tokens=1400,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "image",
-                            "source": {
-                                "type": "base64",
-                                "media_type": "image/jpeg",
-                                "data": b64,
-                            },
-                        },
-                        {"type": "text", "text": ANALYSIS_PROMPT},
-                    ],
-                }
-            ],
+            messages=[{
+                "role": "user",
+                "content": [
+                    {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b64}},
+                    {"type": "text", "text": prompt},
+                ],
+            }],
         )
 
         raw_text = message.content[0].text.strip()
@@ -310,9 +439,13 @@ def analyze():
         result = json.loads(raw_text)
 
         if result.get("is_cannabis"):
-            result = enrich_with_strains(result)
-            result = enrich_with_analytes(result)
-            result = enrich_with_diseases(result)
+            if result.get("image_type") == "seed":
+                result = enrich_with_seed_issues(result)
+            else:
+                result["image_type"] = "bud"
+                result = enrich_with_strains(result)
+                result = enrich_with_analytes(result)
+                result = enrich_with_diseases(result)
 
         return jsonify(result)
 

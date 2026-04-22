@@ -1,0 +1,82 @@
+[
+  {
+    "id": "mold_fungus",
+    "name": "Seed Mold / Fungal Infection",
+    "category": "fungal",
+    "severity": "critical",
+    "visual_symptoms": ["white fuzzy coating on seed surface", "gray or black powdery patches", "dark fuzzy spots on shell", "discolored slimy areas on seed coat"],
+    "causes": "Excess moisture during storage, poor airflow, contaminated growing medium",
+    "treatment": "Discard all affected seeds. Store remaining seeds in cool dry airtight container with silica gel. Never germinate visibly moldy seeds.",
+    "germination_impact": "Will not germinate. Mold destroys embryo and spreads to healthy seeds."
+  },
+  {
+    "id": "immature_seed",
+    "name": "Immature / Underdeveloped Seed",
+    "category": "maturity",
+    "severity": "high",
+    "visual_symptoms": ["pale green or white coloring", "flat or concave shape lacking fullness", "soft or papery shell that bends easily", "small size compared to mature seeds of same strain", "no visible markings or tiger stripes"],
+    "causes": "Harvested too early, insufficient pollination, poor nutrient availability during seed development",
+    "treatment": "Do not attempt to germinate — viability is very low. Discard and source properly matured seeds.",
+    "germination_impact": "Very low germination rate. Embryo not fully developed."
+  },
+  {
+    "id": "cracked_shell",
+    "name": "Cracked or Damaged Shell",
+    "category": "physical",
+    "severity": "medium",
+    "visual_symptoms": ["visible cracks or splits along seed shell", "chipped or broken seed coat edges", "crushed or deformed shape", "exposed interior through shell gaps"],
+    "causes": "Physical damage during handling, transport, or improper storage. Pest damage.",
+    "treatment": "Seeds with minor cracks may still germinate. Seeds with major cracks or exposed interior should be discarded.",
+    "germination_impact": "Reduced germination rate. Cracked seeds are vulnerable to pathogens during germination."
+  },
+  {
+    "id": "pest_damage",
+    "name": "Pest Damage",
+    "category": "pest",
+    "severity": "high",
+    "visual_symptoms": ["small holes or bore marks on seed shell", "tunnels or channels through seed coat", "irregular surface pitting or scarring", "frass or debris attached to seed surface"],
+    "causes": "Seed weevils, moth larvae, or other storage pests burrowing into seeds",
+    "treatment": "Discard all damaged seeds. Inspect remaining seeds carefully. Store in sealed airtight containers. Use food-grade diatomaceous earth around storage area.",
+    "germination_impact": "Will not germinate. Interior embryo has been consumed or destroyed."
+  },
+  {
+    "id": "rot_decay",
+    "name": "Rot / Internal Decay",
+    "category": "fungal",
+    "severity": "critical",
+    "visual_symptoms": ["dark brown or black discoloration spreading across shell", "soft squishy texture when pressed", "sunken or collapsed areas on seed surface", "foul smell if present", "seed feels hollow or unusually light"],
+    "causes": "Prolonged moisture exposure, bacterial or fungal rot during storage, harvest in wet conditions",
+    "treatment": "Discard immediately. Do not store near healthy seeds. Inspect entire seed batch.",
+    "germination_impact": "Zero germination potential. Embryo destroyed by decay."
+  },
+  {
+    "id": "old_degraded",
+    "name": "Old / Degraded Seed",
+    "category": "maturity",
+    "severity": "medium",
+    "visual_symptoms": ["extremely pale or bleached shell color", "dull matte finish with no sheen", "very dry and brittle appearance", "loss of original markings and patterns", "shriveled or wrinkled surface"],
+    "causes": "Improper long-term storage, exposure to heat or light, age beyond viable storage period (2-5 years)",
+    "treatment": "Soak in water for 24 hours before germination attempt. Use hydrogen peroxide solution soak to stimulate. Success rate will be low.",
+    "germination_impact": "Low germination rate. Viability decreases significantly after 2+ years without proper cold storage."
+  },
+  {
+    "id": "chemical_contamination",
+    "name": "Chemical Contamination",
+    "category": "contamination",
+    "severity": "high",
+    "visual_symptoms": ["unusual discoloration in uneven patches", "oily or waxy residue on seed surface", "staining patterns inconsistent with natural markings", "abnormal sheen or coating"],
+    "causes": "Pesticide exposure, chemical treatment during storage, contaminated growing medium",
+    "treatment": "Rinse thoroughly with clean water. If contamination suspected, soak in clean water 24h before germinating. Avoid seeds from unknown sources.",
+    "germination_impact": "May germinate but resulting plant can carry chemical residues."
+  },
+  {
+    "id": "abnormal_shape",
+    "name": "Abnormal Shape / Deformation",
+    "category": "physical",
+    "severity": "low",
+    "visual_symptoms": ["very elongated or flat shape instead of teardrop/oval", "twisted or irregular seed form", "asymmetrical shape significantly different from normal", "double or fused seeds"],
+    "causes": "Genetic abnormality, stress during seed development, physical deformation",
+    "treatment": "Can attempt germination — shape does not always indicate non-viability. Deformed seeds often still germinate.",
+    "germination_impact": "Unpredictable. Some deformed seeds germinate normally; others do not."
+  }
+]
