@@ -72,6 +72,7 @@ analyzeBtn.addEventListener('click', async () => {
     }
 
     renderQuality(data);
+    renderDiseases(data);
     renderStrains(data);
     renderAnalytes(data);
     resultsWrap.classList.remove('hidden');
@@ -137,6 +138,52 @@ function renderQuality(data) {
   (data.negatives || []).forEach(n => {
     const li = document.createElement('li'); li.textContent = n; consUl.appendChild(li);
   });
+}
+
+// ── Disease render ────────────────────────────────────────────────────────────
+
+function renderDiseases(data) {
+  const container = document.getElementById('diseaseContent');
+  container.innerHTML = '';
+
+  const diseases = data.detected_diseases || [];
+
+  if (diseases.length === 0) {
+    container.innerHTML = `<div class="disease-healthy">✅ No diseases or deficiencies detected — sample appears healthy.</div>`;
+    return;
+  }
+
+  const list = document.createElement('div');
+  list.className = 'disease-list';
+
+  diseases.forEach(d => {
+    const sevClass = 'severity-' + (d.severity || 'medium');
+    const sevLabel = 'sev-' + (d.severity || 'medium');
+    const pct = Math.round((d.confidence || 0) * 100);
+
+    const item = document.createElement('div');
+    item.className = `disease-item ${sevClass}`;
+
+    const catIcon = { fungal: '🍄', pest: '🐛', nutrient: '🌱', environmental: '🌡️', unknown: '⚠️' };
+    const icon = catIcon[d.category] || '⚠️';
+
+    item.innerHTML = `
+      <div class="disease-header">
+        <span class="disease-severity ${sevLabel}">${d.severity}</span>
+        <span class="disease-name">${icon} ${d.name}</span>
+        <span class="disease-confidence">${pct}% confidence</span>
+      </div>
+      <div class="disease-body">
+        ${d.evidence ? `<div class="disease-evidence">"${d.evidence}"</div>` : ''}
+        ${d.causes    ? `<div class="disease-row"><strong>Cause:</strong> ${d.causes}</div>` : ''}
+        ${d.treatment ? `<div class="disease-row"><strong>Treatment:</strong> ${d.treatment}</div>` : ''}
+        ${d.risk_to_consumer ? `<div class="disease-risk">⚠️ ${d.risk_to_consumer}</div>` : ''}
+      </div>
+    `;
+    list.appendChild(item);
+  });
+
+  container.appendChild(list);
 }
 
 // ── Strain render ─────────────────────────────────────────────────────────────

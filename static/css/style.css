@@ -325,6 +325,72 @@ header { text-align: center; padding: 1rem 0; }
   padding: .1rem .4rem;
 }
 
+/* Disease card */
+.disease-healthy {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--green);
+  font-size: .95rem;
+  font-weight: 600;
+  padding: .5rem 0;
+}
+
+.disease-list { display: flex; flex-direction: column; gap: .75rem; }
+
+.disease-item {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.disease-item.severity-critical { border-color: #f85149; }
+.disease-item.severity-high     { border-color: #d29922; }
+.disease-item.severity-medium   { border-color: #8b949e; }
+.disease-item.severity-low      { border-color: var(--border); }
+
+.disease-header {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .7rem 1rem;
+  background: var(--bg);
+}
+.disease-severity {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: .2rem .5rem;
+  border-radius: 8px;
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+.sev-critical { background: rgba(248,81,73,.15);  color: #f85149; }
+.sev-high     { background: rgba(210,153,34,.15); color: #d29922; }
+.sev-medium   { background: rgba(139,148,158,.15);color: #8b949e; }
+.sev-low      { background: rgba(63,185,80,.12);  color: var(--green); }
+
+.disease-name { font-weight: 600; font-size: .9rem; flex: 1; }
+.disease-confidence { font-size: .78rem; color: var(--text-muted); flex-shrink: 0; }
+
+.disease-body { padding: .65rem 1rem .85rem; background: var(--surface); }
+.disease-evidence {
+  font-size: .8rem;
+  color: var(--text);
+  margin-bottom: .6rem;
+  font-style: italic;
+}
+.disease-row { font-size: .8rem; color: var(--text-muted); line-height: 1.55; margin-bottom: .35rem; }
+.disease-row strong { color: var(--text); font-weight: 600; }
+.disease-risk {
+  margin-top: .5rem;
+  font-size: .78rem;
+  padding: .4rem .7rem;
+  border-radius: 6px;
+  border-left: 3px solid #f85149;
+  background: rgba(248,81,73,.06);
+  color: #f85149;
+}
+
 /* Analyte card */
 .dataset-badge {
   font-size: .65rem;

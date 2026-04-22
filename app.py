@@ -8,6 +8,7 @@ from PIL import Image
 from dotenv import load_dotenv
 import strains as strain_db
 import analytes as analyte_db
+import diseases as disease_db
 
 load_dotenv()
 
@@ -16,9 +17,10 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB max upload
 
 client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
-# Build terpene name list for the prompt (so Claude uses recognisable names)
-_TERPENE_NAMES = ", ".join(r["name"] for r in analyte_db.get_terpenes())
+# Build reference lists for the prompt
+_TERPENE_NAMES     = ", ".join(r["name"] for r in analyte_db.get_terpenes())
 _CANNABINOID_NAMES = ", ".join(r["name"] for r in analyte_db.get_cannabinoids())
+_DISEASE_NAMES     = ", ".join(disease_db.get_names())
 
 ANALYSIS_PROMPT = f"""You are an expert cannabis quality analyst. Use the following evidence-based criteria (sourced from professional cannabis quality guides) to score this image.
 
@@ -63,6 +65,20 @@ Based on the visual characteristics and likely strain type, estimate:
 - Estimated THC range as a string e.g. "18-22%", or null if uncertain
 - Estimated CBD range as a string e.g. "0.1-0.5%", or null if uncertain
 
+── DISEASE & HEALTH DETECTION ──
+Carefully inspect the image for any signs of plant disease, pest infestation, nutrient deficiency, or environmental stress.
+Look specifically for:
+- Fungal signs: white powdery coating, gray fuzzy mold, dark spots, slimy or mushy areas
+- Pest signs: webbing, stippling (tiny dots), unusual speckles, sticky residue
+- Nutrient issues: yellowing, purple/red discoloration, brown edges, interveinal chlorosis
+- Environmental stress: burned tips, bleached patches, twisted or clawing leaves, wilting
+
+From the following known conditions, list only the ones you can visually confirm or strongly suspect:
+{_DISEASE_NAMES}
+
+For each detected condition provide: name, confidence (0.0–1.0), and the specific visual evidence you observed.
+If the sample looks completely healthy, return an empty array.
+
 Return ONLY a raw JSON object (no markdown fences):
 {{
   "overall_score": <0-100 integer>,
@@ -84,6 +100,9 @@ Return ONLY a raw JSON object (no markdown fences):
   "likely_cannabinoids": ["<cannabinoid name>", ...],
   "thc_estimate": "<range string or null>",
   "cbd_estimate": "<range string or null>",
+  "detected_diseases": [
+    {{ "name": "<exact name from list above>", "confidence": <0.0-1.0>, "evidence": "<what you saw>" }}
+  ],
   "is_cannabis": <true | false>
 }}
 
@@ -130,6 +149,42 @@ def enrich_with_strains(result: dict) -> dict:
         for m in matches
     ]
     result["dataset_size"] = strain_db.total_strains()
+    return result
+
+
+def enrich_with_diseases(result: dict) -> dict:
+    """Look up full disease records for anything Claude detected."""
+    detected = result.get("detected_diseases", [])
+    enriched = []
+    for item in detected:
+        rec = disease_db.lookup_by_name(item.get("name", ""))
+        if rec:
+            enriched.append({
+                **disease_db.format_disease(rec),
+                "confidence": item.get("confidence", 0),
+                "evidence":   item.get("evidence", ""),
+            })
+        else:
+            # Pass through unknown detections Claude found that aren't in our DB
+            enriched.append({
+                "id":               "unknown",
+                "name":             item.get("name", "Unknown"),
+                "category":         "unknown",
+                "severity":         "medium",
+                "causes":           "",
+                "treatment":        "Consult a cannabis cultivation specialist.",
+                "risk_to_consumer": "Unknown — exercise caution.",
+                "visual_symptoms":  [],
+                "confidence":       item.get("confidence", 0),
+                "evidence":         item.get("evidence", ""),
+            })
+
+    # Sort by severity then confidence
+    severity_order = {"critical": 0, "high": 1, "medium": 2, "low": 3, "unknown": 4}
+    enriched.sort(key=lambda x: (severity_order.get(x["severity"], 9), -x["confidence"]))
+
+    result["detected_diseases"] = enriched
+    result["disease_db_size"] = disease_db.total()
     return result
 
 
@@ -212,6 +267,7 @@ def analyze():
         if result.get("is_cannabis"):
             result = enrich_with_strains(result)
             result = enrich_with_analytes(result)
+            result = enrich_with_diseases(result)
 
         return jsonify(result)
 
